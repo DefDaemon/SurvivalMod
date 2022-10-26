@@ -1,5 +1,7 @@
 package com.defdaemon.survivalmod;
 
+import com.defdaemon.survivalmod.block.ModBlocks;
+import com.defdaemon.survivalmod.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,6 +25,9 @@ public class SurvivalMod
     public SurvivalMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
